@@ -1,11 +1,19 @@
+import { CharacterCard } from '@/components/CharacterCard';
+import { List } from '@/components/Layout/List'
+import { useGetCharacters } from '@/hooks/useGetCharacters'
+import { ICharacter } from '@/interfaces/ICharacter';
+import { Content } from 'next/font/google';
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
-import { Header } from '@/components/Layout/Header'
-import { LogoExtended } from '@/components/LogoExtended'
+import { useState } from 'react';
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const [page, setPage] = useState(1);
+  const { data, error, loading } = useGetCharacters(undefined);
+
+  console.log('error', error, 'loading', loading, 'data', data);
+
   return (
     <>
       <Head>
@@ -14,17 +22,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${inter.className} `}>
-        <Header>
-          <LogoExtended />
-          <nav>
-            <ul>
-              <li>Home</li>
-              <li>Characters</li>
-            </ul>
-          </nav>
-        </Header>
-      </main>
+        <List>
+          {!error && !loading && data?.characters?.results?.map((character: ICharacter) =>
+            <CharacterCard key={character.id}
+              imgSrc={character.image}
+              name={character.name}
+              type={character.species}
+              location={character.location.name}
+              status={character.status}
+            />
+          )}
+        </List>
     </>
   )
 }

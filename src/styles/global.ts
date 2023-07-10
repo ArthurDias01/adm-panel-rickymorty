@@ -49,4 +49,19 @@ export default createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+
+  .ant-btn-primary {
+    background-color: ${({ theme }) => theme.colors.neutral_600};
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.neutral_700} !important;
+    }
+  }
+  .ant-input-search :where(.css-dev-only-do-not-override-14wwjjs).ant-input-group .ant-input-affix-wrapper:not(:last-child) {
+    &:hover {
+      border: 1px solid ${({ theme }) => theme.colors.neutral_200};
+    }
+    &:focus-within {
+      border: 2px solid ${({ theme }) => theme.colors.neutral_200};
+    }
+  }
 `;

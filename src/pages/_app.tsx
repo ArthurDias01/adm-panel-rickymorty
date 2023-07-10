@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 
 import GlobalStyles from '@/styles/global';
 import { theme } from '@/styles/theme';
+import { Layout } from '@/components/Layout';
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -14,7 +15,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <ApolloProvider client={client}>
         <ThemeProvider theme={theme}>
           <GlobalStyles />
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </ThemeProvider>
       </ApolloProvider>
     </>
