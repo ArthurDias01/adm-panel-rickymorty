@@ -21,6 +21,7 @@ export const theme = {
     light: 300,
     normal: 400,
     bold: 600,
+    black: 800,
     sizes: {
       xxxxsmall: '0.8rem',
       xxxsmall: '1.2rem',

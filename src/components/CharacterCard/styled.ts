@@ -41,7 +41,10 @@ export const CardDescription = styled.div`
 
 export const CharacterName = styled.h2`
   font-size: ${({ theme }) => theme.font.sizes.medium};
-  font-weight: ${({ theme }) => theme.font.bold};
+  font-weight: ${({ theme }) => theme.font.black};
+  &:hover {
+    color: ${({ theme }) => theme.colors.accent};
+  }
 `
 
 export const CharacterLocationLabel = styled.p`
@@ -58,9 +61,12 @@ export const CharacterLocation = styled.p`
 export const CharacterStatus = styled.p`
   font-size: ${({ theme }) => theme.font.sizes.xsmall};
   font-weight: ${({ theme }) => theme.font.bold};
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 
-export const CharacterStatusBadge = styled.span<{ status: "Alive" | "Dead" }>`
+export const CharacterStatusBadge = styled.span<{ status: "Alive" | "Dead" | "unknown" }>`
   display: inline-block;
   width: 0.75rem;
   height: 0.75rem;

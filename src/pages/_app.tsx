@@ -7,6 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '@/styles/global';
 import { theme } from '@/styles/theme';
 import { Layout } from '@/components/Layout';
+import { SearchProvider } from '@/context/SearchContext';
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -15,9 +16,11 @@ export default function App({ Component, pageProps }: AppProps) {
       <ApolloProvider client={client}>
         <ThemeProvider theme={theme}>
           <GlobalStyles />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <SearchProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </SearchProvider>
         </ThemeProvider>
       </ApolloProvider>
     </>
