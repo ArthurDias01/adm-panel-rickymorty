@@ -2,13 +2,18 @@ import styled from "styled-components";
 import Image from "next/image";
 
 export const ImageContainer = styled(Image)`
-  width: 22rem;
-  height: 22rem;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  max-width: 20rem;
   object-fit: cover;
   object-position: center center;
+  @media (max-width: ${({ theme }) => theme.screens.xs}) {
+    max-width: 100%;
+  }
 `
 export const CardContainer = styled.article`
-  width: 600px;
+  width: 100%;
   height: 220px;
   display: flex;
   flex-direction: row;
@@ -16,11 +21,13 @@ export const CardContainer = styled.article`
   overflow: hidden;
   background: ${({ theme }) => theme.colors.neutral_600};
   border-radius: 0.5rem;
-  margin: 0.75rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-
+  align-self: center;
   @media (max-width: ${({ theme }) => theme.screens.xs}) {
     flex-direction: column;
+    height: 100%;
+    width: 100%;
+    max-width: 36rem;
   }
 `
 

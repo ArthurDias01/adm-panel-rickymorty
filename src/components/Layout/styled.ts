@@ -11,9 +11,11 @@ export const Main = styled.main`
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  max-width: 1280px;
-  padding: 2rem 5%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  padding-bottom: 2rem;
   margin: 0 auto;
   overflow-y: auto;
 `
