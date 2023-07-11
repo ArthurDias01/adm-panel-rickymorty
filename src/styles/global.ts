@@ -18,11 +18,6 @@ export default createGlobalStyle`
           color: ${theme.colors.neutral_950};
         };
       }
-      :where(.light) {
-        * {
-          filter: invert(1);
-        };
-      }
 
       @media (prefers-color-scheme: dark) {
         body {
