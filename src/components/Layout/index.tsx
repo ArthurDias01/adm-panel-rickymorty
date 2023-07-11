@@ -8,6 +8,10 @@ import { Navlink } from "./NavLink"
 import { SearchBox } from "../SeachBox"
 import { useRouter } from "next/router"
 
+// import ThemeSwitcherBase from "../ThemeSwither"
+// import { ThemeSwitcher } from "@/components/ThemeSwither"
+// const ThemeSwitcher = dynamic(() => import("../ThemeSwither"), { ssr: false });
+
 const inter = Inter({ subsets: ['latin'] })
 interface Props {
   children: ReactNode

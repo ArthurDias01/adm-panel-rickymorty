@@ -10,8 +10,15 @@ export const Container = styled.div`
 `;
 
 export const Anchor = styled.a`
-font-size: 2rem;
-display: inline-flex;
-gap: 1rem;
-font-size: ${({ theme }) => theme.font.sizes.xsmall};
+  font-size: 2rem;
+  display: inline-flex;
+  gap: 1rem;
+  font-size: ${({ theme }) => theme.font.sizes.xsmall};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.accent};
+    @media (prefers-color-scheme: light) {
+      color: ${({ theme }) => theme.colors.darkAccent};
+    }
+  }
 `;

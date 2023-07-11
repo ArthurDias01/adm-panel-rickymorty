@@ -51,6 +51,7 @@ export const theme = {
     red: '#ef4444',
     green: '#22c55e',
     accent: '#06b6d4',
+    darkAccent: '#0042d1',
     black: '#0D0D0D'
   },
   spacings: {

@@ -3,7 +3,6 @@ import client from '../lib/apolloClient';
 import { ApolloProvider } from '@apollo/client';
 
 import { ThemeProvider } from 'styled-components';
-
 import GlobalStyles from '@/styles/global';
 import { theme } from '@/styles/theme';
 import { Layout } from '@/components/Layout';
@@ -14,14 +13,14 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <ApolloProvider client={client}>
-        <ThemeProvider theme={theme}>
-          <GlobalStyles />
-          <SearchProvider>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </SearchProvider>
-        </ThemeProvider>
+          <ThemeProvider theme={theme}>
+            <SearchProvider>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </SearchProvider>
+            <GlobalStyles />
+          </ThemeProvider>
       </ApolloProvider>
     </>
   )

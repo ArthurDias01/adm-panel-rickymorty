@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import {darken } from 'polished'
 
 export const ImageContainer = styled(Image)`
   width: 100%;
@@ -19,16 +20,21 @@ export const CardContainer = styled.article`
   flex-direction: row;
   gap: .75rem;
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.neutral_600};
+  background-color: ${({ theme }) => theme.colors.neutral_600};
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   align-self: center;
+
   @media (max-width: ${({ theme }) => theme.screens.xs}) {
     flex-direction: column;
     height: 100%;
     width: 100%;
     max-width: 34rem;
     margin: 0 1rem;
+  }
+
+  @media (prefers-color-scheme: light) {
+    background-color: ${({ theme }) => theme.colors.neutral_200}
   }
 `
 
@@ -43,8 +49,14 @@ export const CardDescription = styled.div`
 export const CharacterName = styled.h2`
   font-size: ${({ theme }) => theme.font.sizes.medium};
   font-weight: ${({ theme }) => theme.font.black};
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
   &:hover {
     color: ${({ theme }) => theme.colors.accent};
+    @media (prefers-color-scheme: light) {
+      color: ${({ theme }) => theme.colors.darkAccent};
+    }
   }
 `
 
@@ -52,6 +64,9 @@ export const CharacterLocationLabel = styled.p`
   font-size: ${({ theme }) => theme.font.sizes.xsmall};
   font-weight: ${({ theme }) => theme.font.bold};
   color: ${({ theme }) => theme.colors.neutral_300};
+  @media (prefers-color-scheme: light) {
+    color: ${({ theme }) => theme.colors.neutral_900}
+  }
 `
 
 export const CharacterLocation = styled.p`

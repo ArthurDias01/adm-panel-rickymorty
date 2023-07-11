@@ -16,6 +16,10 @@ export const Container = styled.div`
   @media (min-width: 768px) {
     width: 90%;
   }
+  @media (prefers-color-scheme: light) {
+    background-color: ${({ theme }) => theme.colors.neutral_400};
+    color: ${({ theme }) => theme.colors.white};
+  }
 `;
 
 export const ImageContainer = styled(Image)`

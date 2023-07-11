@@ -16,4 +16,8 @@ export const StyledHeader = styled.header`
     justify-content: space-between;
     padding: 10px 5%;
   }
+
+  @media (prefers-color-scheme: light) {
+    background-color: ${({ theme }) => theme.colors.neutral_300};
+  }
 `;
