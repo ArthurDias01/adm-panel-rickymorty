@@ -85,3 +85,32 @@ export const Section = styled.section`
   flex-direction: column;
   flex: 1 1 0%;
 `;
+
+export const ExcludeFromListButton = styled.button`
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.neutral_600};
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out 0s;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.neutral_700};
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 2px ${({ theme }) => theme.colors.accent};
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+  svg {
+    width: 2rem;
+    height: 2rem;
+    fill: ${({ theme }) => theme.colors.neutral_100};
+  }
+`;

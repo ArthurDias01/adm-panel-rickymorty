@@ -1,5 +1,6 @@
-import { CardContainer, CardDescription, ImageContainer, CharacterLocation, CharacterLocationLabel, CharacterName, CharacterStatus, CharacterStatusBadge, Section } from './styled'
+import { CardContainer, CardDescription, ImageContainer, CharacterLocation, CharacterLocationLabel, CharacterName, CharacterStatus, CharacterStatusBadge, Section, ExcludeFromListButton } from './styled'
 import Link from 'next/link';
+import { DeleteFilled } from '@ant-design/icons';
 
 interface Props {
   id: string;
@@ -8,10 +9,11 @@ interface Props {
   location: string;
   imgSrc: string;
   type: string;
+  deleteFromList: (id: string) => void;
 }
 
 
-export const CharacterCard = ({ id, name, imgSrc, location, status, type }: Props) => {
+export const CharacterCard = ({ id, name, imgSrc, location, status, type, deleteFromList }: Props) => {
   return (
     <CardContainer>
       <ImageContainer src={imgSrc} alt={`${name} - ${status} - ${type}`} width={220} height={220} />
@@ -28,6 +30,9 @@ export const CharacterCard = ({ id, name, imgSrc, location, status, type }: Prop
         <Section>
           <CharacterLocationLabel>Last known location:</CharacterLocationLabel>
           <CharacterLocation>{location}</CharacterLocation>
+          <ExcludeFromListButton onClick={() => deleteFromList(id)}>
+            <DeleteFilled />
+          </ExcludeFromListButton>
         </Section>
       </CardDescription>
     </CardContainer>

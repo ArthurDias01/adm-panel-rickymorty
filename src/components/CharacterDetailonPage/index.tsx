@@ -25,7 +25,7 @@ export const CharacterDetailonPage = ({ character }: Props) => {
       </DetailWrapper>
 
       <DetailWrapper>
-        <CharacterLabel>Scpecies:</CharacterLabel> <CharacterDetailText>{character.species}</CharacterDetailText>
+        <CharacterLabel>Species:</CharacterLabel> <CharacterDetailText>{character.species}</CharacterDetailText>
       </DetailWrapper>
 
       <DetailWrapper>

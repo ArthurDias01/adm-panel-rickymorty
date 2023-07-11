@@ -12,6 +12,7 @@ export const SearchBox = () => {
   const { setSearch, setSearchByStatus, searchByStatus, setPage } = useSearch();
   const [searchValue, setSearchValue] = useState('');
   const [searchBy, setSearchBy] = useState<"Name" | "Status">('Name');
+
   const Id = useId();
 
   const onSearch = (value: string) => {

@@ -33,12 +33,12 @@ export const ImageContainer = styled(Image)`
 `
 
 export const CharacterLabel = styled.span`
-  font-size: ${({ theme }) => theme.font.sizes.xlarge};
+  font-size: ${({ theme }) => theme.font.sizes.medium};
   font-weight: ${({ theme }) => theme.font.bold};
 `;
 
 export const CharacterDetailText = styled.p<{ status?: string }>`
-  font-size: ${({ theme }) => theme.font.sizes.large};
+  font-size: ${({ theme }) => theme.font.sizes.medium};
   background-color: ${({ theme, status }) => status === "Alive" ? theme.colors.green : status === "Dead" ? theme.colors.red : status === 'unknown' ? theme.colors.neutral_400 : 'transparent'};
   padding: 0.5rem;
   border-radius: ${({ theme, status }) => status !== undefined ? theme.border.radius : 0};
@@ -54,7 +54,7 @@ export const CharacterDetailText = styled.p<{ status?: string }>`
 `;
 
 export const CharacterName = styled.h2`
-  font-size: ${({ theme }) => theme.font.sizes.xlarge};
+  font-size: ${({ theme }) => theme.font.sizes.medium};
   font-weight: ${({ theme }) => theme.font.normal};
 `;
 
@@ -63,6 +63,6 @@ export const DetailWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 1rem;
-  width: 70%;
+  width: 60%;
   justify-content: space-between;
   `;

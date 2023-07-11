@@ -69,4 +69,20 @@ export default createGlobalStyle`
       border: 2px solid ${({ theme }) => theme.colors.neutral_200};
     }
   }
+  .ant-modal-content,.ant-modal-title {
+    background-color: ${({ theme }) => theme.colors.neutral_100} !important;
+  }
+
+  button.ant-btn.ant-btn-default{
+    background-color: ${({ theme }) => theme.colors.neutral_300} !important;
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.neutral_400} !important;
+      border: 1px solid ${({ theme }) => theme.colors.neutral_400} !important;
+      color: ${({ theme }) => theme.colors.neutral_950} !important;
+    }
+  }
+
+  .ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+    border-color: ${({ theme }) => theme.colors.neutral_400} !important;
+}
 `;
