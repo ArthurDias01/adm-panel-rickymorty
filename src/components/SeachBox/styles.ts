@@ -10,7 +10,6 @@ export const Container = styled.div`
 `;
 
 export const Anchor = styled.a`
-  font-size: 2rem;
   display: inline-flex;
   gap: 1rem;
   font-size: ${({ theme }) => theme.font.sizes.xsmall};
@@ -20,5 +19,9 @@ export const Anchor = styled.a`
     @media (prefers-color-scheme: light) {
       color: ${({ theme }) => theme.colors.darkAccent};
     }
+  }
+
+  @media (max-width: ${({ theme }) => theme.screens.xs}) {
+    font-size: ${({ theme }) => theme.font.sizes.xxxsmall};
   }
 `;

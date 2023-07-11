@@ -137,7 +137,7 @@ export const SearchBox = () => {
             onSearch={onSearch}
             onChange={(e) => setSearchValue(e.target.value)}
             value={searchValue}
-            style={{ width: 200 }}
+            style={{ width: '50%' }}
           />
           :
           <Dropdown menu={{ items: searchByStatusOptions }} placement="bottomRight" arrow>

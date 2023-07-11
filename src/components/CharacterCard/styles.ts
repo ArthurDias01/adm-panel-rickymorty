@@ -30,7 +30,6 @@ export const CardContainer = styled.article`
     height: 100%;
     width: 100%;
     max-width: 34rem;
-    margin: 0 1rem;
   }
 
   @media (prefers-color-scheme: light) {
