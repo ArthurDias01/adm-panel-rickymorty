@@ -23,7 +23,7 @@ interface IUseGetCharactersInput {
 export const useGetCharacters = ({ page = 1, name = null, status = null }: IUseGetCharactersInput) => {
 
 
-  const { loading, error, data } = useQuery(GetCharacters, {
+  const { loading, error, data, refetch } = useQuery(GetCharacters, {
     variables: {
       page: page,
       name: name ? name : null,
@@ -36,6 +36,7 @@ export const useGetCharacters = ({ page = 1, name = null, status = null }: IUseG
   return {
     loading,
     error,
-    data
+    data,
+    refetch
   }
 };

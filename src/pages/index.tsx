@@ -11,15 +11,17 @@ import { useSearch } from '@/context/SearchContext';
 import { ZeroFound } from '@/components/Layout/ZeroFound';
 import { DeleteModal } from '@/components/DeleteModal';
 import { createPortal } from 'react-dom';
+import { Button } from '@/components/Button';
+import { useRouter } from 'next/router';
 // import { Pagination, PaginationProps } from 'antd';
 // import { PaginationContainer } from '@/components/Layout/PaginationContainer';
 
 
 
 export default function Home() {
-
+  const router = useRouter();
   const { search, searchByStatus, page, setPage } = useSearch();
-  const { data, error, loading } = useGetCharacters({ page, name: search, status: searchByStatus });
+  const { data, error, loading, refetch } = useGetCharacters({ page, name: search, status: searchByStatus });
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [deletedIds, setDeletedIds] = useState<string[]>([]);
@@ -42,6 +44,11 @@ export default function Home() {
     setShowDeleteModal(true);
   }
 
+  const clearDeleted = () => {
+    localStorage.removeItem('deleted');
+    setDeletedIds([]);
+    router.reload();
+  }
 
   useEffect(() => {
     const deletedIds = JSON.parse(localStorage.getItem('deleted') || '[]') as string[];
@@ -63,7 +70,7 @@ export default function Home() {
       }
       );
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deleteId, error, loading, page])
 
 
@@ -121,6 +128,10 @@ export default function Home() {
         //     showTotal={showTotal}
         //   />
         // </PaginationContainer>
+      }
+      {
+        !error && !loading && data?.characters?.info?.pages >= 1 &&
+        <Button onClick={clearDeleted}>Clear Deleted</Button>
       }
       {
         error ? <Error /> : null
