@@ -1,7 +1,7 @@
 import { Input } from 'antd';
 import { useEffect, useId, useState } from 'react';
 const { Search } = Input;
-import { Container, Anchor } from './styled'
+import { Container, Anchor } from './styles'
 import { useSearch } from '@/context/SearchContext';
 import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
@@ -57,6 +57,19 @@ export const SearchBox = () => {
         setSearchBy('Status');
       }
     },
+    {
+      key: '3',
+      label: (
+        <p>
+          Clear Search
+        </p>
+      ),
+      onClick: () => {
+        setSearchBy('Name');
+        setSearchValue('');
+        setSearchByStatus(null);
+      }
+    },
   ];
 
   const searchByStatusOptions: MenuProps['items'] = [
@@ -96,6 +109,19 @@ export const SearchBox = () => {
         setPage(1);
       }
     },
+    {
+      key: '4',
+      label: (
+        <p>
+          Clear Search
+        </p>
+      ),
+      onClick: () => {
+        setSearchBy('Name');
+        setSearchValue('');
+        setSearchByStatus(null);
+      }
+    },
   ];
 
   return (
@@ -110,7 +136,8 @@ export const SearchBox = () => {
             size="large"
             onSearch={onSearch}
             onChange={(e) => setSearchValue(e.target.value)}
-            style={{ width: '60%' }}
+            value={searchValue}
+            style={{ width: 200 }}
           />
           :
           <Dropdown menu={{ items: searchByStatusOptions }} placement="bottomRight" arrow>

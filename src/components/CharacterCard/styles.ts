@@ -27,7 +27,8 @@ export const CardContainer = styled.article`
     flex-direction: column;
     height: 100%;
     width: 100%;
-    max-width: 36rem;
+    max-width: 34rem;
+    margin: 0 1rem;
   }
 `
 

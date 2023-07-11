@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Container } from "./styled";
+import { Container } from "./styles";
 
 
 interface Props {

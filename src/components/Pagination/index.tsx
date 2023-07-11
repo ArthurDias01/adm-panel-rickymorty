@@ -1,5 +1,5 @@
 import { PaginationItem } from "./PaginationItem";
-import { ButtonGroup, PaginationButton, PaginationInfoContainer } from './styled'
+import { ButtonGroup, PaginationButton, PaginationInfoContainer } from './styles'
 
 interface PaginationProps {
   totalCountOfRegisters: number;

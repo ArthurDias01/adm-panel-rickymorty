@@ -1,4 +1,4 @@
-import { PaginationButton } from './styled'
+import { PaginationButton } from './styles'
 interface PaginationItemProps {
   number: number;
   isCurrent?: boolean;

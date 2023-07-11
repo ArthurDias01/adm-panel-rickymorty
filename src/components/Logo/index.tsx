@@ -1,4 +1,4 @@
-import { LogoSVG } from "./styled";
+import { LogoSVG } from "./styles";
 
 
 export function Logo() {

@@ -28,10 +28,11 @@ export const useGetCharacters = ({ page = 1, name = null, status = null }: IUseG
       page: page,
       name: name ? name : null,
       status: status ? status : null
-    }
+    },
+    fetchPolicy: "cache-and-network",
   });
 
-  console.log(`using query page:${page}`, data, name, loading);
+  // console.log(`using query page:${page}`, data, name, loading);
 
   return {
     loading,

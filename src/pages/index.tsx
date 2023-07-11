@@ -21,7 +21,7 @@ import { useRouter } from 'next/router';
 export default function Home() {
   const router = useRouter();
   const { search, searchByStatus, page, setPage } = useSearch();
-  const { data, error, loading, refetch } = useGetCharacters({ page, name: search, status: searchByStatus });
+  const { data, error, loading } = useGetCharacters({ page, name: search, status: searchByStatus });
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [deletedIds, setDeletedIds] = useState<string[]>([]);

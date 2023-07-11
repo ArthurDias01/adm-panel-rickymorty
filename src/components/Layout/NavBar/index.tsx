@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { StyledNavBar } from "./styled"
+import { StyledNavBar } from "./styles"
 
 interface Props {
   children: ReactNode

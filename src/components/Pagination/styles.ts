@@ -27,6 +27,11 @@ export const PaginationButton = styled.button<{ isCurrent?: boolean }>`
     color: ${({ theme }) => theme.colors.neutral_400};
     cursor: not-allowed;
   }
+
+  @media (max-width: ${({ theme }) => theme.screens.xs}) {
+      padding: .75rem;
+      font-size: ${({ theme }) => theme.font.sizes.xxsmall};
+    }
 `;
 
 

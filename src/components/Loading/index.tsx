@@ -1,5 +1,5 @@
 import { Logo } from "../Logo"
-import { Container, Loader, LoaderContainerForLogo } from "./styled"
+import { Container, Loader, LoaderContainerForLogo } from "./styles"
 
 
 export const Loading = () => {

@@ -2,7 +2,7 @@ import { ReactNode } from "react"
 import { Inter } from 'next/font/google'
 import { Header } from '@/components/Layout/Header'
 import { LogoExtended } from '@/components/LogoExtended'
-import { Main, Container } from './styled'
+import { Main, Container } from './styles'
 import { NavBar } from "./NavBar"
 import { Navlink } from "./NavLink"
 import { SearchBox } from "../SeachBox"

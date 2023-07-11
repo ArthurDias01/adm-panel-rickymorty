@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Container, ImageContainer, CharacterName, CharacterLabel, DetailWrapper, CharacterDetailText } from "./styled";
+import { Container, ImageContainer, CharacterName, CharacterLabel, DetailWrapper, CharacterDetailText } from "./styles";
 import { ICharacter } from "@/interfaces/ICharacter";
 
 interface Props {

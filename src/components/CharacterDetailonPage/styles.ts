@@ -35,6 +35,10 @@ export const ImageContainer = styled(Image)`
 export const CharacterLabel = styled.span`
   font-size: ${({ theme }) => theme.font.sizes.medium};
   font-weight: ${({ theme }) => theme.font.bold};
+
+  @media (max-width: ${({theme}) => theme.screens.xs}) {
+    font-size: ${({ theme }) => theme.font.sizes.small};
+  }
 `;
 
 export const CharacterDetailText = styled.p<{ status?: string }>`
@@ -42,6 +46,9 @@ export const CharacterDetailText = styled.p<{ status?: string }>`
   background-color: ${({ theme, status }) => status === "Alive" ? theme.colors.green : status === "Dead" ? theme.colors.red : status === 'unknown' ? theme.colors.neutral_400 : 'transparent'};
   padding: 0.5rem;
   border-radius: ${({ theme, status }) => status !== undefined ? theme.border.radius : 0};
+
+
+
   animation: ${({ status }) => status ? 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;' : 'none'};
   @keyframes pulse {
     0%, 100% {
@@ -51,11 +58,19 @@ export const CharacterDetailText = styled.p<{ status?: string }>`
       opacity: .5;
     }
   }
+
+  @media (max-width: ${({theme}) => theme.screens.xs}) {
+    font-size: ${({ theme }) => theme.font.sizes.small};
+  }
 `;
 
 export const CharacterName = styled.h2`
   font-size: ${({ theme }) => theme.font.sizes.medium};
   font-weight: ${({ theme }) => theme.font.normal};
+
+  @media (max-width: ${({theme}) => theme.screens.xs}) {
+    font-size: ${({ theme }) => theme.font.sizes.small};
+  }
 `;
 
 export const DetailWrapper = styled.div`
@@ -65,4 +80,8 @@ export const DetailWrapper = styled.div`
   gap: 1rem;
   width: 60%;
   justify-content: space-between;
+
+  @media (max-width: ${({theme}) => theme.screens.xs}) {
+    width: 100%
+  }
   `;

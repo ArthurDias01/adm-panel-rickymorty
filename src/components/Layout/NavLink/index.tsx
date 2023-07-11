@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { StyledNavlink } from './styled'
+import { StyledNavlink } from './styles'
 import Link, { LinkProps } from 'next/link'
 
 interface Props extends LinkProps {

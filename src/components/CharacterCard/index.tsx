@@ -1,4 +1,4 @@
-import { CardContainer, CardDescription, ImageContainer, CharacterLocation, CharacterLocationLabel, CharacterName, CharacterStatus, CharacterStatusBadge, Section, ExcludeFromListButton } from './styled'
+import { CardContainer, CardDescription, ImageContainer, CharacterLocation, CharacterLocationLabel, CharacterName, CharacterStatus, CharacterStatusBadge, Section, ExcludeFromListButton } from './styles'
 import Link from 'next/link';
 import { DeleteFilled } from '@ant-design/icons';
 
@@ -16,7 +16,9 @@ interface Props {
 export const CharacterCard = ({ id, name, imgSrc, location, status, type, deleteFromList }: Props) => {
   return (
     <CardContainer>
-      <ImageContainer src={imgSrc} alt={`${name} - ${status} - ${type}`} width={220} height={220} />
+      <Link href={`/character/${id}`}>
+        <ImageContainer src={imgSrc} alt={`${name} - ${status} - ${type}`} width={220} height={220} />
+      </Link>
       <CardDescription>
         <Section>
           <Link href={`/character/${id}`}>

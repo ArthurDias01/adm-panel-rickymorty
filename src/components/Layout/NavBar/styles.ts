@@ -8,7 +8,7 @@ export const StyledNavBar = styled.nav`
   align-items: center;
   gap: 2rem;
   padding: 2rem;
-  font-size: ${({ theme }) => theme.font.sizes.large};
+  font-size: ${({ theme }) => theme.font.sizes.medium};
   font-weight: ${({ theme }) => theme.font.bold};
 
   @media (min-width: ${({ theme }) => theme.screens.md}) {
