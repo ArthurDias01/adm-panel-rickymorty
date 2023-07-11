@@ -71,7 +71,7 @@ export default function Home() {
       );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [deleteId, error, loading, page])
+  }, [deleteId, error, loading, page, search])
 
 
 
