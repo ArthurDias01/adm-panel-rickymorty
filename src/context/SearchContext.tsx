@@ -1,4 +1,3 @@
-import { useDebounce } from '@/hooks/useDebounce';
 import { createContext, useContext, useEffect, useState } from 'react';
 
 interface ISearchContextProps {
@@ -8,16 +7,21 @@ interface ISearchContextProps {
 interface ISearchContextData {
   search: string;
   setSearch: (search: string) => void;
-  isSearching: boolean;
+  searchByStatus: "Alive" | "Dead" | "unknown" | null;
+  setSearchByStatus: (searchByStatus: "Alive" | "Dead" | "unknown" | null) => void;
+  page: number;
+  setPage: (page: number) => void;
 }
 
 const SearchContext = createContext({} as ISearchContextData);
 
 export function SearchProvider({ children }: ISearchContextProps) {
   const [search, setSearch] = useState('');
-  const { debouncedValue, isSearching } = useDebounce(search, 700);
+  const [searchByStatus, setSearchByStatus] = useState<"Alive" | "Dead" | "unknown" | null>(null);
+  const [page, setPage] = useState(1);
+
   return (
-    <SearchContext.Provider value={{ search: debouncedValue, setSearch, isSearching }}>
+    <SearchContext.Provider value={{ search, setSearch, searchByStatus, setSearchByStatus, page, setPage }}>
       {children}
     </SearchContext.Provider>
   )

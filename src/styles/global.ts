@@ -50,13 +50,18 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
-  .ant-btn-primary {
+  .ant-btn-primary, .ant-btn,.ant-btn-default ,.ant-btn-lg ,.ant-btn-icon-only ,.ant-input-search-button {
     background-color: ${({ theme }) => theme.colors.neutral_600};
     &:hover {
       background-color: ${({ theme }) => theme.colors.neutral_700} !important;
     }
   }
-  .ant-input-search :where(.css-dev-only-do-not-override-14wwjjs).ant-input-group .ant-input-affix-wrapper:not(:last-child) {
+
+.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+    border-color: ${({ theme }) => theme.colors.accent} !important;
+  }
+
+  .ant-input-affix-wrapper.ant-input-affix-wrapper-lg {
     &:hover {
       border: 1px solid ${({ theme }) => theme.colors.neutral_200};
     }

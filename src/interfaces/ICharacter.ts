@@ -5,8 +5,13 @@ export interface ICharacter {
   species: string;
   image: string;
   type: string;
+  origin?: {
+    name: string;
+    dimension: string;
+  }
   location: {
     name: string;
     type: string;
+    dimension?: string;
   }
 }

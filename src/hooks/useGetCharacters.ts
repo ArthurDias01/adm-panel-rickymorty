@@ -15,21 +15,23 @@ export interface IDataQueryResult {
 }
 
 interface IUseGetCharactersInput {
-  page?: number;
+  page: number;
   name?: string | null;
+  status: "Alive" | "Dead" | "unknown" | null;
 }
 
-export const useGetCharacters = ({ page, name = null }: IUseGetCharactersInput) => {
+export const useGetCharacters = ({ page = 1, name = null, status = null }: IUseGetCharactersInput) => {
+
+
   const { loading, error, data } = useQuery(GetCharacters, {
     variables: {
-      page: page ? page : 1,
-      name: name ? name : null
+      page: page,
+      name: name ? name : null,
+      status: status ? status : null
     }
   });
 
-  console.log("useGetCharacters -> error", JSON.stringify(
-    error, null, 2
-  ), data !== undefined ? data.characters.results : null, loading)
+  console.log(`using query page:${page}`, data, name, loading);
 
   return {
     loading,

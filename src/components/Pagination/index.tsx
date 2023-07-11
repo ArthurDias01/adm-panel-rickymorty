@@ -43,9 +43,9 @@ export const Pagination = ({
     <ButtonGroup>
       <PaginationInfoContainer>
         <strong>{currentPage === 1 ? 1 : (currentPage - 1) * registersPerPage + 1} </strong>
-        <strong>{'\xa0 a '}{currentPage * registersPerPage > totalCountOfRegisters ? totalCountOfRegisters : currentPage * registersPerPage}
+        <strong>{'\xa0 to '}{currentPage * registersPerPage > totalCountOfRegisters ? totalCountOfRegisters : currentPage * registersPerPage}
         </strong>
-        <strong style={{ marginLeft: '1rem' }}> de {totalCountOfRegisters} total</strong>
+        <strong style={{ marginLeft: '1rem' }}> of {totalCountOfRegisters} total</strong>
       </PaginationInfoContainer>
 
       {onPreviousPage &&

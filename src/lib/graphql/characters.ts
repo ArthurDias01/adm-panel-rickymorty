@@ -1,8 +1,8 @@
 import { gql } from "apollo-server-micro";
 
 export const GetCharacters = gql`
-  query Characters($page: Int, $name: String){
-  characters(page: $page, filter: { name: $name }) {
+  query Characters($page: Int,$name: String, $status: String) {
+  characters(page: $page, filter: {name: $name, status: $status}) {
     info {
       count
       pages
@@ -20,9 +20,26 @@ export const GetCharacters = gql`
         name
         type
       }
-
     }
   }
-
 }
 `
+export const GetCharacter = gql`
+query Character($id: ID!){
+  character(id: $id) {
+    id
+    name
+    status
+    species
+    type
+    origin {
+      name
+      dimension
+    }
+    location {
+      name
+      dimension
+    }
+    image
+  }
+}`;

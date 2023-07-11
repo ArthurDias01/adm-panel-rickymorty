@@ -6,6 +6,7 @@ import { Main, Container } from './styled'
 import { NavBar } from "./NavBar"
 import { Navlink } from "./NavLink"
 import { SearchBox } from "../SeachBox"
+import { useRouter } from "next/router"
 
 const inter = Inter({ subsets: ['latin'] })
 interface Props {
@@ -14,14 +15,17 @@ interface Props {
 
 export const Layout = ({ children }: Props) => {
 
+  const router = useRouter();
+  const { id } = router.query
+
   return (
     <Main className={`${inter.className} `}>
       <Header>
         <LogoExtended />
         <NavBar>
-          <Navlink linkTitle="Home" href="#" />
+          <Navlink linkTitle="Home" href="/" />
         </NavBar>
-        <SearchBox />
+        {id === undefined && <SearchBox />}
       </Header>
       <Container>
         {children}

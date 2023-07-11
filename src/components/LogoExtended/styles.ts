@@ -12,11 +12,11 @@ export const StyledLogoExtended = styled.div`
 
    h1 {
     font-size: ${theme.font.sizes.xsmall};
-    @media (min-width: ${({ theme }) => theme.screens.md}) {
-      font-size: ${theme.font.sizes.medium};
-    }
     @media (min-width: ${({ theme }) => theme.screens.lg}) {
       font-size: ${theme.font.sizes.large};
+    }
+    @media (min-width: ${({ theme }) => theme.screens.md}) {
+      font-size: ${theme.font.sizes.medium};
     }
     @media (max-width: ${({ theme }) => theme.screens.xs}) {
       display: none;

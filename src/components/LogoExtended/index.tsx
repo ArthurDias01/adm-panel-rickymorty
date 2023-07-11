@@ -6,7 +6,7 @@ export const LogoExtended = () => {
   return (
     <StyledLogoExtended>
       <Logo />
-      <h1>Ricky and Morty</h1>
+      <h1>Ricky &amp; Morty</h1>
     </StyledLogoExtended>
   )
 }
