@@ -2,7 +2,7 @@ import { ICharacter } from '@/interfaces/ICharacter';
 import { GetCharacter } from '../lib/graphql/characters'
 import { useQuery } from '@apollo/client';
 
-export interface IDataQueryResult {
+export interface IDataQueryCharacterResult {
   character: ICharacter;
 }
 
@@ -11,7 +11,7 @@ interface IUseGetCharacterInput {
 }
 
 export const useGetCharacter = ({ id }: IUseGetCharacterInput) => {
-  const { loading, error, data } = useQuery(GetCharacter, {
+  const { loading, error, data } = useQuery<IDataQueryCharacterResult>(GetCharacter, {
     variables: {
       id
     }

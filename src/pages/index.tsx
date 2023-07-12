@@ -53,12 +53,12 @@ export default function Home() {
   useEffect(() => {
     const deletedIds = JSON.parse(localStorage.getItem('deleted') || '[]') as string[];
     setDeletedIds(deletedIds);
-    if (loading === false && !error) {
+    if (loading === false && !error && data) {
       setFilteredData({
         data: {
           characters: {
             info: {
-              ...data.characters.results.info,
+              ...data.characters.info,
               pages: Math.floor(data.characters.info.pages - deletedIds.length / 20),
               count: data.characters.info.count - deletedIds.length,
             },
@@ -71,7 +71,7 @@ export default function Home() {
       );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [deleteId, error, loading, page, search])
+  }, [deleteId, error, loading, page, search, searchByStatus])
 
 
 
@@ -87,7 +87,7 @@ export default function Home() {
         loading ?
           <Loading /> : null
       }
-      {loading === false && !error && data?.characters?.results.length > 0 &&
+      {loading === false && !error && data && data.characters?.results.length > 0 &&
         <List>
           {!error && !loading && filteredData?.data.characters?.results?.filter((character: ICharacter) => {
             return !deletedIds.includes(character.id)
@@ -107,7 +107,7 @@ export default function Home() {
       }
 
       {
-        !error && !loading && data?.characters?.info?.pages >= 1 &&
+        !error && !loading && data && data?.characters?.info?.pages >= 1 &&
         <Pagination
           onPageChange={setPage}
           totalCountOfRegisters={data.characters.info.count - deletedIds.length}
@@ -130,7 +130,7 @@ export default function Home() {
         // </PaginationContainer>
       }
       {
-        !error && !loading && data?.characters?.info?.pages >= 1 &&
+        !error && !loading && data && data?.characters?.info?.pages >= 1 &&
         <Button onClick={clearDeleted}>Clear Deleted</Button>
       }
       {

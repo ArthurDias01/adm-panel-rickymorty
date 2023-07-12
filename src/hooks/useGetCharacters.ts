@@ -23,13 +23,13 @@ interface IUseGetCharactersInput {
 export const useGetCharacters = ({ page = 1, name = null, status = null }: IUseGetCharactersInput) => {
 
 
-  const { loading, error, data, refetch } = useQuery(GetCharacters, {
+  const { loading, error, data, refetch } = useQuery<IDataQueryResult>(GetCharacters, {
     variables: {
       page: page,
       name: name ? name : null,
       status: status ? status : null
     },
-    fetchPolicy: "cache-and-network",
+    fetchPolicy: "cache-first",
   });
 
   // console.log(`using query page:${page}`, data, name, loading);
